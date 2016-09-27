@@ -1,0 +1,5 @@
+package OefKoffie;
+
+public interface CupCoffe {
+
+}

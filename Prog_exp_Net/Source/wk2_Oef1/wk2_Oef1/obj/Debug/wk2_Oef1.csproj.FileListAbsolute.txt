@@ -1,0 +1,6 @@
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\wk2_Oef1\wk2_Oef1\bin\Debug\wk2_Oef1.exe.config
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\wk2_Oef1\wk2_Oef1\obj\Debug\wk2_Oef1.csprojResolveAssemblyReference.cache
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\wk2_Oef1\wk2_Oef1\bin\Debug\wk2_Oef1.exe
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\wk2_Oef1\wk2_Oef1\bin\Debug\wk2_Oef1.pdb
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\wk2_Oef1\wk2_Oef1\obj\Debug\wk2_Oef1.exe
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\wk2_Oef1\wk2_Oef1\obj\Debug\wk2_Oef1.pdb

@@ -1,0 +1,6 @@
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\Oef\Oef\bin\Debug\Oef.exe.config
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\Oef\Oef\bin\Debug\Oef.exe
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\Oef\Oef\bin\Debug\Oef.pdb
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\Oef\Oef\obj\Debug\Oef.csprojResolveAssemblyReference.cache
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\Oef\Oef\obj\Debug\Oef.exe
+C:\Users\bram\Documents\school\Prog_exp_Net\Source\Oef\Oef\obj\Debug\Oef.pdb

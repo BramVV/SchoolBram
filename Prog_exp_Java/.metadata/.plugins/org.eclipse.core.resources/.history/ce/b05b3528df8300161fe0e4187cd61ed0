@@ -1,0 +1,5 @@
+package OefKoffie;
+
+public class Late extends CupCoffe {
+
+}
