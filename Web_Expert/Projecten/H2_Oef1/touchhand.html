@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+<h2>Touch me <3</h2>
+<input type="checkbox"
+       value="Touch me"
+       ng-model="colorWithValue"
+       ng-true-value="'dont.JPG'"
+       ng-false-value="'DO.JPG'"
+/>Touch me
+<img src="img\{{ colorWithValue }}"/>
+</div>
+</body>
+</html>

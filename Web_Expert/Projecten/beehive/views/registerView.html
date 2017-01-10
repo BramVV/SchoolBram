@@ -1,0 +1,170 @@
+<div>
+    <!-- TODO: INPUT VALIDATION -->
+    <form class="form-horizontal" name="RegisterForm" novalidate>
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Registreer</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="username">Gebruikersnaam</label>
+                <div class="col-md-4">
+                    <input id="username" ng-model="user.username" name="username" type="text" placeholder="bramvv" class="form-control input-md"
+                           required
+                           ng-minlength="3"
+                           ng-maxlength="20"
+                           ng-pattern="/^[a-zA-Z0-9]*$/">
+                    <!-- TODO: Gebruikersnaam mag niet bestaan, Ajax call? -->
+                    <label class="label label-danger" ng-show="RegisterForm.username.$error.required">De gebruikersnaam is verplicht.</label>
+                    <label class="label label-danger"
+                           ng-show="RegisterForm.username.$error.minlength || RegisterForm.username.$error.maxlength">
+                        De lengte van de gebruikersnaam is tussen 3 en 20 karakters.
+                    </label>
+                    <label class="label label-danger"
+                           ng-show="RegisterForm.username.$error.pattern">
+                        De gebruikersnaam mag geen speciale karakters hebben.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password">Wachtwoord</label>
+                <div class="col-md-4">
+                    <input id="password" ng-model="user.password" name="password" type="password" placeholder="" class="form-control input-md"
+                           required
+                           ng-maxlength="30"
+                           ng-minlength="8"
+                           ng-pattern="/.*\d.*/"
+                    >
+
+                    <label class="label label-danger" ng-show="RegisterForm.password.$error.required">Het wachtwoord is verplicht.</label>
+                    <label class="label label-danger" ng-show="RegisterForm.password.$error.minlength">Het wachtwoord moet minstens 8 karaters bevatten.</label>
+                    <label class="label label-danger" ng-show="RegisterForm.password.$error.maxlength">Het wachtwoord mag niet langer zijn dan 30 karakters.</label>
+                    <label class="label label-danger" ng-show="RegisterForm.password.$error.pattern">Het wachtwoord moet minstens 1 cijfer bevatten.</label>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="cpassword">Controle Wachtwoord</label>
+                <div class="col-md-4">
+                    <input id="cpassword" name="cpassword" ng-model="user.cpassword" type="password" placeholder="" class="form-control input-md" required pw-check="password">
+                    <label class="label label-danger" ng-if="user.cpassword != user.password">Het controle wachtwoord komt niet overeen met het wachtwoord.</label>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="firstname">Voornaam</label>
+                <div class="col-md-4">
+                    <input id="firstname" ng-model="user.first_name" name="firstname" type="text" placeholder="Bram" class="form-control input-md"
+                           required
+                           ng-minlength="2"
+                           ng-maxlength="30"
+                           ng-pattern="/^[a-zA-Z]*$/"
+                    >
+                    <label class="label label-danger" ng-show="RegisterForm.firstname.$error.required">De voornaam is verplicht.</label>
+                    <label class="label label-danger" ng-show="RegisterForm.firstname.$error.minlength || RegisterForm.firstname.$error.maxlength">
+                        De lengte van de voornaam is tussen 2 en 50 karakters.
+                    </label>
+                    <label class="label label-danger" ng-show="RegisterForm.firstname.$error.pattern">
+                        De voornaam mag speciale tekens of cijfers bevatten.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="lastnameinput">Achternaam</label>
+                <div class="col-md-4">
+                    <input id="lastnameinput" ng-model="user.last_name" name="lastname" type="text" placeholder="Van Vleymen" class="form-control input-md"
+                           required
+                           ng-minlength="2"
+                           ng-maxlength="50"
+                           ng-pattern="/^[a-zA-Z]*$/"
+                    >
+
+                    <label class="label label-danger" ng-show="RegisterForm.lastname.$error.required">De achternaam is verplicht.</label>
+                    <label class="label label-danger" ng-show="RegisterForm.lastname.$error.minlength || RegisterForm.lastname.$error.maxlength">
+                        De lengte van de achternaam is tussen 2 en 20 karakters.
+                    </label>
+                    <label class="label label-danger" ng-show="RegisterForm.lastname.$error.pattern">
+                        De achternaam mag speciale tekens of cijfers bevatten.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="adresinput">Adres</label>
+                <div class="col-md-4">
+                    <input id="adresinput" ng-model="user.address" name="adres" type="text" placeholder="salvatorstraat 20" class="form-control input-md"
+                        ng-minlength="5"
+                        ng-maxlength="50"
+                        ng-pattern="/^[a-zA-Z0-9]*$/"
+                    >
+                    <label class="label label-danger" ng-show="RegisterForm.adres.$error.pattern">
+                        Dit adres is niet geldig.
+                    </label>
+                    <label class="label label-danger" ng-show="RegisterForm.adres.$error.minlength || RegisterForm.adres.$error.maxlength">
+                        De lengte van het adres is tussen 5 en 50 karakters.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="postcodeinput">Postcode</label>
+                <div class="col-md-4">
+                    <input id="postcodeinput" ng-model="user.postcode.number" name="postcode" type="text" placeholder="3500" class="form-control input-md"
+                    ng-maxlength="4"
+                           ng-minlength="4"
+                           ng-pattern="/^[0-9]*$/"
+                    >
+                    <label class="label label-danger" ng-show="RegisterForm.postcode.$error.minlength || RegisterForm.postcode.$error.maxlength || RegisterForm.postcode.$error.pattern">
+                        De postcode is exact 4 cijfers lang.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="mobileinput">Mobiel nummer</label>
+                <div class="col-md-4">
+                    <input id="mobileinput" ng-model="user.cellphone_number" name="mobile" type="text" placeholder="0471568920" class="form-control input-md"
+                           ng-maxlength="10"
+                           ng-minlength="10"
+                           ng-pattern="/^[0-9]*$/"
+                    >
+                    <label class="label label-danger" ng-show="RegisterForm.mobile.$error.minlength || RegisterForm.mobile.$error.maxlength || RegisterForm.mobile.$error.pattern">
+                        Het gsm nummer is exact 10 cijfers lang.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <!-- TODO: email mag niet bestaan, Ajax call? -->
+                <label class="col-md-4 control-label" for="emailinput">Email adres</label>
+                <div class="col-md-4">
+                    <input id="emailinput" ng-model="user.email" name="email" type="email" placeholder="1545@student.pxl.be" class="form-control input-md"
+                           required
+                    >
+                    <label class="label label-danger" ng-show="RegisterForm.email.$error.required">Het e-mail adres is verplicht.</label>
+                    <label class="label label-danger" ng-show="RegisterForm.email.$error.email">Het e-mail adres is niet geldig.</label>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submitbutton"></label>
+                <div class="col-md-4">
+                    <button id="submitbutton" name="submitbutton" class="btn btn-primary" ng-disabled="RegisterForm.$invalid || (user.cpassword != user.password)" ng-click="regCtrl.register(user)">Registreer</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

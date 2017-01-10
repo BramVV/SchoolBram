@@ -1,0 +1,43 @@
+body {
+  color: #31572C; }
+  body a {
+    color: #132A13; }
+
+.content .view {
+  margin: 3%; }
+
+header .row {
+  width: 100%;
+  top: 0;
+  margin: 0;
+  padding: 2px;
+  background-color: #90A955; }
+  header .row .col-md-1 {
+    margin-top: 10px; }
+  header .row .iconImg {
+    height: 45px; }
+  header .row h2 {
+    font-family: "Courier New", Courier, monospace;
+    margin: 9px;
+    display: inline; }
+
+.content {
+  padding: 2%; }
+
+.menu {
+  margin-bottom: 3%; }
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none; }
+
+body {
+  background-color: #D1F0B1; }
+
+.btncolor {
+  background-color: #4F772D;
+  border-color: #31572C; }
+
+footer .row {
+  margin-top: 3%; }

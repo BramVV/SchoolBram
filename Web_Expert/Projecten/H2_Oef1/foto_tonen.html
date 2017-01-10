@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>fotoTonen</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body ng-init="persons=[{name:'fred', img:'fred.jpg'},{name:'bjorn',img:'bjorn.jpg'},{name:'jeroen', img:'jeroen.jpg'}]">
+<p>
+    <input type="checkbox" ng-model="reversed" />Omgekeerd sorteren
+</p>
+<ul>
+    <li ng-repeat="person in persons| orderBy : 'name':reversed">
+        <div>
+        <img style="width: 500px" src="img/{{person.img}}"/>
+            {{person.name}}
+        </div>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/angular.min.js"></script>
+    <script src="testcontroller.js"></script>
+</head>
+<body>
+<div class = "container" ng-controller="myController as ctrl">
+    <li ng-repeat="artikel in ctrl.art>
+        <div>
+            id:{{artikel[0]}}, name:{{artikel[1]}}, verkoop:{{artikel[2]}}, aankoop:{{artikel[3]}}
+        </div>
+    </li>
+    {{ctrl.art[0]}}
+</div>
+</body>
+</html>

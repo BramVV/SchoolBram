@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inspection Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="../css/datepicker.css"/>
+</head>
+<body>
+<form class="form-horizontal">
+    <fieldset>
+
+        <legend>Inspectie</legend>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="queen_cells">Koninginnecellen</label>
+            <div class="col-md-4">
+                <input id="queen_cells" name="queen_cells" class="form-control input-md" value="0" min="0" max="9" oninput="queen_cellsOutput.value = queen_cells.value" type="range">
+                <output name="queen_cellsOutput" id="queen_cellsOutput">0</output>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="mites_fall">Mijtenval</label>
+            <div class="col-md-4">
+                <input id="mites_fall" name="mites_fall" class="form-control input-md" value="0" min="0" max="100" step="10" oninput="mites_fallOutput.value = mites_fall.value" type="range">
+                <output name="mites_fallOutput" id="mites_fallOutput">0</output>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="sugar_feeded">Suiker gevoerd</label>
+            <div class="col-md-4">
+                <input id="sugar_feeded" name="sugar_feeded" class="form-control input-md" value="-5" min="-5" max="40" step="5" oninput="sugar_feededOutput.value = formatValue(sugar_feeded.value)" type="range">
+                <output name="sugar_feededOutput" id="sugar_feededOutput">1</output>
+            </div>
+        </div>
+        <script>
+            function formatValue(value) {
+                if (value == -5){
+                    value = 1;
+                }
+                if (value == 0){
+                    value = 2;
+                }
+                return value + "kg";
+            }
+        </script>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="remarks">Opmerkingen</label>
+            <div class="col-md-4">
+                <textarea class="form-control" id="remarks" name="remarks"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="time_stamp">Inspectie Datum</label>
+            <div class="col-md-2">
+                <input type="text" value="" class="form-control input-md" data-date-format="dd/mm/yy" id="time_stamp" >
+            </div>
+        </div>
+        <script>
+            $('#time_stamp').datepicker();
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+            var yy = yyyy.toString().substring(2);
+
+            if(dd<10) {
+                dd='0'+dd
+            }
+
+            if(mm<10) {
+                mm='0'+mm
+            }
+
+            today = dd+'/'+mm+'/'+yy;
+            document.getElementById("time_stamp").value = today;
+        </script>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="queen_present">Koningin gezien</label>
+            <div class="col-md-4">
+                <input name="problem" id="queen_present" value="1" type="checkbox">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="eggs_present">Eitjes gezien</label>
+            <div class="col-md-4">
+                <input name="problem" id="eggs_present" value="1" type="checkbox">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="lay_pattern">Leg Patroon</label>
+            <div class="col-md-4">
+                <select id="lay_pattern" name="lay_pattern" class="form-control">
+                    <option value="0">Slecht</option>
+                    <option value="1">Voldoende</option>
+                    <option value="2">Goed</option>
+                    <option value="3">Uitstekend</option>
+                    <option value="4">Uitzonderlijk</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="temper">Temperament</label>
+            <div class="col-md-4">
+                <select id="temper" name="temper" class="form-control">
+                    <option value="0">Slecht</option>
+                    <option value="1">Voldoende</option>
+                    <option value="2">Goed</option>
+                    <option value="3">Uitstekend</option>
+                    <option value="4">Uitzonderlijk</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Problemen</label>
+            <div class="col-md-4"> <!-- Dynamisch uit de database tabel "problem" ophalen !! -->
+                <div class="input-group">
+                    <select id="problem1" name="problem1" class="form-control">
+                        <option value="0">Tracheemijt</option>
+                        <option value="1">AVB</option>
+                        <option value="2">Geafrikaniseerde bijen</option>
+                        <option value="3">Dieren</option>
+                        <option value="4">Moerloos</option>
+                    </select>
+                    <span class="input-group-btn">
+                        <button class="btn btn-success btn-danger" type="button" id="deleteProblem1Button">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                    </span>
+                </div>
+                <button class="btn btn-success btn-add" type="button" id="addProblemButton">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-8">
+                <button id="submitButton" name="submitButton" class="btn btn-primary">Save</button>
+                <button id="cancelButton" name="cancelButton" class="btn btn-default">Annuleer</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+</body>
+</html>

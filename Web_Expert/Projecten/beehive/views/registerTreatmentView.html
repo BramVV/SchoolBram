@@ -1,0 +1,54 @@
+<div>
+    <form class="form-horizontal">
+        <fieldset>
+
+            <legend>Behandeling</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="treatment_type">Behandelingstype</label>
+                <div class="col-md-4">
+                    <select id="treatment_type" name="treatment_type" class="form-control">
+                        <option value="0">Behandeling1</option>
+                        <option value="1">Behandeling2</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="time_stamp">Datum</label>
+                <div class="col-md-2">
+                    <input type="text" value="" class="form-control input-md" data-date-format="dd/mm/yy" id="time_stamp" >
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-8">
+                    <button id="submitButton" name="submitButton" class="btn btn-primary">Save</button>
+                    <button id="cancelButton" name="cancelButton" class="btn btn-default">Annuleer</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="css/datepicker.css"/>
+    <script>
+        $('#time_stamp').datepicker();
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        var yy = yyyy.toString().substring(2);
+
+        if(dd<10) {
+            dd='0'+dd
+        }
+
+        if(mm<10) {
+            mm='0'+mm
+        }
+
+        today = dd+'/'+mm+'/'+yy;
+        document.getElementById("time_stamp").value = today;
+    </script>
+</div>

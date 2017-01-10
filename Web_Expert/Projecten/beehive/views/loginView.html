@@ -1,0 +1,37 @@
+<div>
+    <form class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Login</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="username">Gebruikersnaam</label>
+                <div class="col-md-4">
+                    <input id="username" ng-model="user.username" name="username" type="text" placeholder="BramVV" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="passwordinput">Password</label>
+                <div class="col-md-4">
+                    <input id="passwordinput" name="passwordinput" ng-model="user.password" type="password" placeholder="" class="form-control input-md" required="">
+                    <span class="help-block"><a class="" href="index.html#/register">Registreer hier!</a></span>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="sumbit"></label>
+                <div class="col-md-4">
+                    <button id="sumbit" name="sumbit" ng-click="loginCtrl.login(user)" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>

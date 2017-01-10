@@ -1,0 +1,89 @@
+<div>
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Honingsextractie</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="time_stamp">Datum</label>
+                <div class="col-md-2">
+                    <input type="text" value="" class="form-control input-md" data-date-format="dd/mm/yy" id="time_stamp" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="weight">Gewicht</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input id="weight" name="weight" class="form-control" required="" step="0.01" type="number">
+                        <span class="input-group-addon">kg</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Batch code</label>
+                <label class="col-md-4 control-label" >001-3500-151216</label>
+                <!--
+                Uitleg over de batchcode:
+                0013500151216 => 001 | 3500 | 15/12/16
+
+                001 => ID van DEZE nectar extractie
+                3500 => Postcode van de bijenstand waarin de bijenkorf zit waarop de inspectie wordt gedaan
+                15/12/16 => Datum van vandaag
+
+                -->
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="humidity">Vochtigheid</label>
+                <div class="col-md-4">
+                    <input id="humidity" name="humidity" class="form-control input-md" value="0" min="0" max="100" oninput="humidityOutput.value = humidity.value + '%'" type="range">
+                    <output name="humidityOutput" id="humidityOutput">0%</output>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nectar_origin">Nectarbron</label>
+                <div class="col-md-4">
+                    <input id="nectar_origin" name="nectar_origin" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="description">Beschrijving</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="description" name="description"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-8">
+                    <button id="submitButton" name="submitButton" class="btn btn-primary">Save</button>
+                    <button id="cancelButton" name="cancelButton" class="btn btn-default">Annuleer</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="css/datepicker.css"/>
+    <script>
+        $('#time_stamp').datepicker();
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        var yy = yyyy.toString().substring(2);
+
+        if(dd<10) {
+            dd='0'+dd
+        }
+
+        if(mm<10) {
+            mm='0'+mm
+        }
+
+        today = dd+'/'+mm+'/'+yy;
+        document.getElementById("time_stamp").value = today;
+    </script>
+</div>

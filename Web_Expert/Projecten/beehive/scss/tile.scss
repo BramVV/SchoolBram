@@ -1,0 +1,18 @@
+$color5: #132A13;
+$color4: #31572C;
+$color3: #4F772D;
+$color2: #90A955;
+$color1: #D1F0B1;
+
+.tile{
+  margin:5px;
+  background-color: $color2;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px $color5;
+  .tileImage{
+    margin: 2%;
+  }
+    .name{
+      margin-top:7px;
+    }
+}

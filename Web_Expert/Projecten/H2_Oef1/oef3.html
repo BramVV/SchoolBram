@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/oef3_controller.js"></script>
+</head>
+<body>
+<div class = "container" ng-controller="oef3Controller">
+    <li ng-repeat="artikel in artikels| orderBy : 'name':reversed">
+        <div>
+            id:{{artikel[0]}}, name:{{artikel[1]}}, verkoop:{{artikel[2]}}, aankoop:{{artikel[3]}}
+        </div>
+</div>
+</body>
+</html>

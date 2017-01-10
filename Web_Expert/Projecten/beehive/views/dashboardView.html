@@ -1,0 +1,32 @@
+<div>
+    <div class="col-sm-6" ng-repeat="apiary in dashCtrl.apiarys">
+        <a href="index.html?#/apiary/{{apiary.id}}">
+        <div class="tile">
+        <div class="row">
+            <img class="col-sm-4 tileImage" src="img/logo.png"/>
+                <div class="row col-sm-8">
+                    <img class="col-sm-3" src="img/token_key-512.png"/>
+                    <div class="col-sm-9 row name">
+                        {{apiary.name}}
+                    </div>
+                </div>
+                <div class="row col-sm-8">
+                    <img class="col-sm-3" src="img/map.png"/>
+                    <div class="col-sm-9 row">
+                        {{apiary.address}}
+                    </div>
+                    <div class="col-sm-9 row">
+                        {{apiary.postcode}}
+                    </div>
+                </div>
+            <div class="row col-sm-8">
+                <img class="col-sm-3" src="img/hive.png"/>
+                <div class="col-sm-9 row name">
+                    {{apiary.beehive.length}}
+                </div>
+            </div>
+        </div>
+    </div>
+        </a>
+    </div>
+</div>

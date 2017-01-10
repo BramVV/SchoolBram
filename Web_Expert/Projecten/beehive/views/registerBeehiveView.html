@@ -1,0 +1,90 @@
+<div>
+    <form class="form-horizontal" name="RegisterBeehiveForm" novalidate>
+        <fieldset>
+
+            <legend>Bijenkast</legend>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="name">Naam</label>
+                <div class="col-sm-4">
+                    <input id="name" ng-model="beehive.name" name="name" class="form-control input-md" type="text"
+                           required
+                           ng-minlength="3"
+                           ng-maxlength="30">
+                    <label class="label label-danger" ng-show="RegisterBeehiveForm.name.$error.required">
+                        De naam is verplicht.
+                    </label>
+                    <label class="label label-danger" ng-show="RegisterBeehiveForm.name.$error.minlength || RegisterBeehiveForm.name.$error.maxlength">
+                        De lengte van de naam is tussen 3 en 30 karakters.
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="type">Type kast</label>
+                <div class="col-md-4">
+                    <select id="type" name="type" class="form-control">
+                        <option disabled selected value> -- Selecteer de type van de kast -- </option>
+                        <option value="0">12x10</option>
+                        <option value="1">12x12</option>
+                        <option value="2">10x12</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="origin">Herkomst volk</label>
+                <div class="col-md-4">
+                    <select id="origin" name="origin" class="form-control">
+                        <option disabled selected value> -- Selecteer de herkomst van het volk -- </option>
+                        <option value="0">Ergens</option>
+                        <option value="1">Andere</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="apiary">Toevoegen aan Bijenstand</label>
+                <div class="col-md-4">
+                    <input class="checkbox" type="checkbox" name="apiaryCheckbox" value="apiaryChecked" ng-model="apiaryChecked" ng-true-value="true" ng-false-value="false">
+                    <select id="apiary" name="test" class="form-control" ng-show="apiaryChecked" ng-controller="registerBeehiveController">
+                        <option ng-repeat="apiary in apiaries" value="{{apiary.id}}">{{apiary.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="queen">Koninginnebij toevoegen</label>
+                <div class="col-md-4">
+                    <input class="checkbox" type="checkbox" name="queenCheckbox" value="queenChecked" ng-model="queenChecked" ng-true-value="true" ng-false-value="false">
+                    <div class="input-group">
+                        <select id="queen" name="queen" class="form-control" ng-show="queenChecked">
+                            <option disabled selected value> -- Selecteer de Koninginnebij -- </option>
+                            <option value="0">Bij1</option>
+                            <option value="1">Bij2</option>
+                        </select>
+                        <span class="input-group-btn" ng-show="queenChecked">
+                            <button class="btn btn-success btn-add" type="button" id="addQueenButton">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="extra_hive_parts">Extra kastdelen</label>
+                <div class="col-md-4">
+                    <input id="extra_hive_parts" name="queen_cells" class="form-control input-md" value="1" min="1" max="10" oninput="extra_hive_partsOutput.value = extra_hive_parts.value" type="range">
+                    <output name="extra_hive_partsOutput" id="extra_hive_partsOutput">0</output>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="submitbutton"></label>
+                <div class="col-sm-4">
+                    <button id="submitbutton" name="submitbutton" class="btn btn-primary" ng-disabled="RegisterBeehiveForm.$invalid" ng-click="regBeehiveCtrl.register(beehive)">Voeg toe</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,9 @@
+.tile {
+  margin: 5px;
+  background-color: #90A955;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #132A13; }
+  .tile .tileImage {
+    margin: 2%; }
+  .tile .name {
+    margin-top: 7px; }
